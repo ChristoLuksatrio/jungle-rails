@@ -7,6 +7,14 @@ main section.categories-show {
     flex-wrap:       wrap;
     justify-content: space-around;
 
+    .badge-danger {
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 3px 0 7px 0;
+      background-color: #DE9898;
+    }
+
     .product {
       // flex:      1;
       max-width: 260px;
