@@ -28,12 +28,19 @@ RSpec.describe User, type: :model do
     #   expect(subject.save).to redirect_to('/signup')
     # end
 
-    it { is_expected.to validate_uniqueness_of :email }
-
+    it "must have a unique email" do 
+      is_expected.to validate_uniqueness_of :email 
+    end
 
     it "is not valid without email and name" do
       subject.name = nil
       subject.email = nil
+      expect(subject).to_not be_valid
+    end
+
+    it "is not valid without a password below" do
+      subject.password = "1"
+      subject.password_confirmation = "1"
       expect(subject).to_not be_valid
     end
   end
